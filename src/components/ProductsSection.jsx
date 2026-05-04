@@ -15,27 +15,42 @@ function ProductsSection() {
       : products.filter((product) => product.category === selectedCategory)
 
   return (
-    <section id="products" className="px-8 py-16 max-w-7xl mx-auto">      <h2 className="text-3xl font-bold text-center mb-8">
-        {t("products.sectionTitle")}
-      </h2>
+    <section
+      id="products"
+      className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
+    >
+      <div className="mb-8 text-center sm:mb-10">
+        <p className="mb-2 text-sm font-semibold text-amber-700 sm:text-base">
+          {t("navbar.products")}
+        </p>
 
-      <div className="flex flex-wrap justify-center gap-3 mb-10">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-5 py-2 rounded-full border transition ${
-              selectedCategory === category
-                ? "bg-amber-800 text-white border-amber-800"
-                : "bg-white text-stone-700 border-stone-300 hover:border-amber-700 hover:text-amber-800"
-            }`}
-          >
-            {t(`products.categories.${category}`)}
-          </button>
-        ))}
+        <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl lg:text-4xl">
+          {t("products.sectionTitle")}
+        </h2>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="mb-8 flex flex-wrap justify-center gap-2 sm:mb-10 sm:gap-3">
+        {categories.map((category) => {
+          const isActive = selectedCategory === category
+
+          return (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setSelectedCategory(category)}
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition sm:px-5 sm:text-base ${
+                isActive
+                  ? "border-amber-800 bg-amber-800 text-white shadow-sm"
+                  : "border-stone-300 bg-white text-stone-700 hover:border-amber-700 hover:bg-amber-50 hover:text-amber-800"
+              }`}
+            >
+              {t(`products.categories.${category}`)}
+            </button>
+          )
+        })}
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #fafaf9;
+}
+
+* {
+  box-sizing: border-box;
+}
