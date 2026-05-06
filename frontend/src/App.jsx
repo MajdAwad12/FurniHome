@@ -1,3 +1,4 @@
+//App.jsx
 import Navbar from "./components/Navbar"
 import HomeHero from "./components/HomeHero"
 import ProductsSection from "./components/ProductsSection"
