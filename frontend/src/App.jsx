@@ -4,7 +4,6 @@ import HomeHero from "./components/HomeHero"
 import ProductsSection from "./components/ProductsSection"
 import AboutSection from "./components/AboutSection"
 import ContactSection from "./components/ContactSection"
-import WhatsAppButton from "./components/WhatsAppButton"
 import Footer from "./components/Footer"
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
       <AboutSection />
       <ContactSection />
       <Footer />
-      <WhatsAppButton />
     </div>
   )
 }
